@@ -49,8 +49,8 @@ if game.GameId == 578392296 then
             task.wait()
         until timerCheck() > _G.MinTimer
         notify("Server Hopping")
-        task.wait(16)
-	wait()
+        task.wait()
+	wait(16)
         serverHop()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/RZiln/GayBloxScripts/master/ABA/ServerHop.lua", true))()
     else
