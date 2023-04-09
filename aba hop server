@@ -32,7 +32,6 @@ end
 if game.GameId == 578392296 then
     if game.PlaceId ~= 5411459567 then
         notify("Joining AFK World, please")
-	wait(16)
         serverHop()
         game:GetService('TeleportService'):Teleport(5411459567)
     end
@@ -43,6 +42,7 @@ if game.GameId == 578392296 then
         local time = tonumber(timer[1])
         return time
     end
+    wait(13)
 
     if timerCheck() <= _G.MinTimer then
         notify("Waiting for reward")
