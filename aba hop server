@@ -32,6 +32,7 @@ end
 if game.GameId == 578392296 then
     if game.PlaceId ~= 5411459567 then
         notify("Joining AFK World, please")
+	wait(16)
         serverHop()
         game:GetService('TeleportService'):Teleport(5411459567)
     end
@@ -49,8 +50,7 @@ if game.GameId == 578392296 then
             task.wait()
         until timerCheck() > _G.MinTimer
         notify("Server Hopping")
-        task.wait()
-	wait(16)
+        task.wait(1)
         serverHop()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/RZiln/GayBloxScripts/master/ABA/ServerHop.lua", true))()
     else
