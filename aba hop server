@@ -2,10 +2,10 @@ repeat
     wait()
 until game.Loaded
 game:GetService("RunService"):Set3dRenderingEnabled(false)
-wait()
+task.wait(5)
 if game.PlaceId == 5411459567 then
     repeat
-        wait()
+        task.wait(1)
     until game.Workspace.Message
 end
 _G.MinTimer = 75
@@ -13,11 +13,11 @@ _G.MinTimer = 75
 local function notify(text)
     game.StarterGui:SetCore("SendNotification", {
         Title = "RZiln's AFK hop",
-        Duration = 75,
+        Duration = 76,
         Text = text
     })
 end
-
+task.wait(9)
 local function serverHop()
     if syn then
         syn.queue_on_teleport(
@@ -29,25 +29,27 @@ local function serverHop()
 
 end
 
-if game.GameId == 1458767429 then
+if game.GameId == 578392296 then
     if game.PlaceId ~= 5411459567 then
         notify("Joining AFK World, please")
         serverHop()
         game:GetService('TeleportService'):Teleport(5411459567)
     end
+
     notify("AFK Hop running")
     local function timerCheck()
         local timer = game.Workspace.Message.Text:split(" ")
         local time = tonumber(timer[1])
         return time
     end
+
     if timerCheck() <= _G.MinTimer then
         notify("Waiting for reward")
         repeat
-            wait()
+            task.wait()
         until timerCheck() > _G.MinTimer
         notify("Server Hopping")
-        wait(1)
+        task.wait(1)
         serverHop()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/RZiln/GayBloxScripts/master/ABA/ServerHop.lua", true))()
     else
@@ -56,4 +58,4 @@ if game.GameId == 1458767429 then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/RZiln/GayBloxScripts/master/ABA/ServerHop.lua", true))()
     end
 
-end
+end 
