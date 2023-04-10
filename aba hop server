@@ -5,7 +5,7 @@ game:GetService("RunService"):Set3dRenderingEnabled(false)
 task.wait()
 if game.PlaceId == 5411459567 then
     repeat
-        task.wait(1)
+        task.wait()
     until game.Workspace.Message
 end
 _G.MinTimer = 85
@@ -35,7 +35,7 @@ if game.GameId == 578392296 then
         serverHop()
         game:GetService('TeleportService'):Teleport(5411459567)
     end
-    wait(10)
+    wait(19)
     notify("AFK Hop running")
     local function timerCheck()
         local timer = game.Workspace.Message.Text:split(" ")
