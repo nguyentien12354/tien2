@@ -34,7 +34,7 @@ if game.GameId == 578392296 then
         serverHop()
         game:GetService('TeleportService'):Teleport(5411459567)
     end
-    task.wait(3)
+    task.wait(7)
     notify("AFK Hop running")
     local function timerCheck()
         local timer = game.Workspace.Message.Text:split(" ")
