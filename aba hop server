@@ -8,12 +8,12 @@ if game.PlaceId == 5411459567 then
         task.wait(1)
     until game.Workspace.Message
 end
-_G.MinTimer = 75
+_G.MinTimer = 85
 
 local function notify(text)
     game.StarterGui:SetCore("SendNotification", {
         Title = "RZiln's AFK hop",
-        Duration = 76,
+        Duration = 86,
         Text = text
     })
 end
