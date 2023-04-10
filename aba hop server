@@ -29,7 +29,7 @@ local function serverHop()
 
 end
 
-if game.GameId == 578392296 then
+if game.GameId == 1458767429 then
     if game.PlaceId ~= 5411459567 then
         notify("Joining AFK World, please")
         serverHop()
