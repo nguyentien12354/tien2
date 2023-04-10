@@ -13,7 +13,7 @@ _G.MinTimer = 100
 local function notify(text)
     game.StarterGui:SetCore("SendNotification", {
         Title = "RZiln's AFK hop",
-        Duration = 75,
+        Duration = 100,
         Text = text
     })
 end
