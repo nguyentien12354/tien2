@@ -17,7 +17,7 @@ local function notify(text)
         Text = text
     })
 end
-
+wait(9)
 local function serverHop()
     if syn then
         syn.queue_on_teleport(
@@ -35,7 +35,6 @@ if game.GameId == 1458767429 then
         serverHop()
         game:GetService('TeleportService'):Teleport(5411459567)
     end
-    wait(9)
     notify("AFK Hop running")
     local function timerCheck()
         local timer = game.Workspace.Message.Text:split(" ")
