@@ -797,7 +797,7 @@ local function synsaveinstance(CustomOptions)
 		}
 		]]
 		ExtraInstances = {},
-		NilInstances = true,
+		NilInstances = false,
 		ShowStatus = true,
 		FilePath = false, --  does not need to contain a file extension, only the name of the file.
 		Object = false, -- If provided, saves as .rbxmx (Model file) instead; If Object is game, it will be saved as a .RBXL file -- ! MUST BE AN INSTANCE REFERENCE like game.Workspace for example; "optimized" mode is NOT supported with this option
