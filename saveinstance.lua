@@ -806,15 +806,15 @@ local function synsaveinstance(CustomOptions)
 		-- DecompileTimeout = OPTIONS.timeout, -- ! This takes priority over OPTIONS.timeout if set
 		IgnoreDefaultProperties = true,
 		IgnoreNotArchivable = true,
-		IgnorePropertiesOfNotScriptsOnScriptsMode = true, -- Ignores property of every instance that is not a script in "scripts" mode
-		IgnoreSpecialProperties = false, -- true will disable Terrain & some other things
+		IgnorePropertiesOfNotScriptsOnScriptsMode = false, -- Ignores property of every instance that is not a script in "scripts" mode
+		IgnoreSpecialProperties = true, -- true will disable Terrain & some other things
 		-- IsolatePlayerGui = false,
 		IsolateStarterPlayer = false, --If enabled, StarterPlayer will be cleared and the saved starter player will be placed into folders.
 		IsolateLocalPlayer = false, -- Saves Children of LocalPlayer as separate folder and prevents any instance of ClassName Player with .Name identical to LocalPlayer.Name from saving
 		IsolateLocalPlayerCharacter = false, -- Saves Children of LocalPlayer.Character as separate folder and prevents any instance of ClassName Player with .Name identical to LocalPlayer.Name from saving
 		-- MaxThreads = 3
 		RemovePlayerCharacters = true, -- If enabled, player characters will not be saved.
-		SavePlayers = false,
+		SavePlayers = true,
 		SaveCacheInterval = 0x1600, -- The less the more often it saves, but that would mean less performance due to constantly saving
 		ReadMe = true,
 		-- ! Risky
