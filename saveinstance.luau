@@ -535,7 +535,7 @@ for Class, Properties in ClassPropertiesBlacklist do
 	ClassPropertiesBlacklist[Class] = ArrayToDictionary(Properties)
 end
 local function FetchAPI()
-	local API_Dump_Url = "https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/roblox/API-Dump.json"
+	local API_Dump_Url = "https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/roblox/Mini-API-Dump.json"
 	local API_Dump = game:HttpGet(API_Dump_Url, true)
 	local API_Classes = service.HttpService:JSONDecode(API_Dump).Classes
 
