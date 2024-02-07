@@ -10,7 +10,7 @@ return function(first)
     ]]
     local function loadreflection()
         --[[ Thanks MaximumADHD! ]]
-        local raw = httpget("https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/roblox/API-Dump.txt");
+        local raw = httpget("https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/roblox/Full-API-Dump.json");
         local rbxapi = {};
         local t;
         local at = 1;
