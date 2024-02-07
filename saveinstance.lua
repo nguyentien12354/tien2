@@ -772,7 +772,7 @@ local function synsaveinstance(CustomOptions)
 	local OPTIONS = {
 		mode = "optimized", -- Change this to invalid mode like "custom" if you only want extrainstances; -- ! "optimized" mode is NOT supported with OPTIONS.Instance option
 		noscripts = false,
-		scriptcache = true,
+		scriptcache = false,
 		-- decomptype = "new", -- * Deprecated
 		timeout = 30,
 		--* New:
@@ -802,8 +802,8 @@ local function synsaveinstance(CustomOptions)
 		-- Binary = false, -- true in syn newer versions (false in our case because no binary support yet)
 		-- Decompile = not OPTIONS.noscripts, -- ! This takes priority over OPTIONS.noscripts if set
 		-- DecompileTimeout = OPTIONS.timeout, -- ! This takes priority over OPTIONS.timeout if set
-		IgnoreDefaultProperties = true,
-		IgnoreNotArchivable = true,
+		IgnoreDefaultProperties = false,
+		IgnoreNotArchivable = false,
 		IgnorePropertiesOfNotScriptsOnScriptsMode = false, -- Ignores property of every instance that is not a script in "scripts" mode
 		IgnoreSpecialProperties = false, -- true will disable Terrain & some other things
 		-- IsolatePlayerGui = false,
