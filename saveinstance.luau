@@ -814,7 +814,7 @@ local function synsaveinstance(CustomOptions)
 		IsolateLocalPlayerCharacter = false, -- Saves Children of LocalPlayer.Character as separate folder and prevents any instance of ClassName Player with .Name identical to LocalPlayer.Name from saving
 		-- MaxThreads = 3
 		RemovePlayerCharacters = true, -- If enabled, player characters will not be saved.
-		SavePlayers = true,
+		SavePlayers = false,
 		SaveCacheInterval = 0x1600, -- The less the more often it saves, but that would mean less performance due to constantly saving
 		ReadMe = true,
 		-- ! Risky
