@@ -530,7 +530,7 @@ local function ArrayToDictionary(Table, HybridMode)
 	return tmp
 end
 local ClassPropertiesBlacklist =
-	{ GuiObject = { "Transparency" }, Instance = { "Parent" }, BasePart = { "BrickColor" } } -- GuiObject.Transparency is almost always 1 meaning everything will be transparent, Instance.Parent is useless in xml (no idea about binary), BasePart.BrickColor hurts other Color3 properties
+	{ GuiObject = { "Transparency" }, Instance = { "Parent" }, BasePart = { "BrickColor" } , Instance = {"Attachment"}} -- GuiObject.Transparency is almost always 1 meaning everything will be transparent, Instance.Parent is useless in xml (no idea about binary), BasePart.BrickColor hurts other Color3 properties
 for Class, Properties in ClassPropertiesBlacklist do
 	ClassPropertiesBlacklist[Class] = ArrayToDictionary(Properties)
 end
