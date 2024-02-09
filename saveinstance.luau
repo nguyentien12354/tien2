@@ -799,7 +799,7 @@ local function synsaveinstance(CustomOptions)
 		ExtraInstances = {},
 		NilInstances = true,
 		ShowStatus = true,
-		FilePath = true, --  does not need to contain a file extension, only the name of the file.
+		FilePath = false, --  does not need to contain a file extension, only the name of the file.
 		Object = false, -- If provided, saves as .rbxmx (Model file) instead; If Object is game, it will be saved as a .RBXL file -- ! MUST BE AN INSTANCE REFERENCE like game.Workspace for example; "optimized" mode is NOT supported with this option
 		-- Binary = false, -- true in syn newer versions (false in our case because no binary support yet)
 		-- Decompile = not OPTIONS.noscripts, -- ! This takes priority over OPTIONS.noscripts if set
