@@ -530,7 +530,7 @@ local function ArrayToDictionary(Table, HybridMode)
 	return tmp
 end
 local ClassPropertiesBlacklist =
-	{ GuiObject = { "Transparency" }, Instance = { "Parent" }, BasePart = { "BrickColor" }, Instance = { "Model" }, Instance = { "Sound" }, Instance = { "Light" } } -- GuiObject.Transparency is almost always 1 meaning everything will be transparent, Instance.Parent is useless in xml (no idea about binary), BasePart.BrickColor hurts other Color3 properties
+	{ GuiObject = { "Transparency" }, Instance = { "Parent" }, BasePart = { "BrickColor" } } -- GuiObject.Transparency is almost always 1 meaning everything will be transparent, Instance.Parent is useless in xml (no idea about binary), BasePart.BrickColor hurts other Color3 properties
 for Class, Properties in ClassPropertiesBlacklist do
 	ClassPropertiesBlacklist[Class] = ArrayToDictionary(Properties)
 end
@@ -919,22 +919,14 @@ local function synsaveinstance(CustomOptions)
 			tmp = TempRoot:GetChildren()
 		elseif mode == "optimized" then -- ! Incompatible with .rbxmx (Model file) mode
 			local _list_0 = {
-				"Chat",
-				"InsertService",
 				"JointsService",
 				"Lighting",
 				"MaterialService",
 				"ReplicatedFirst",
 				"ReplicatedStorage",
-				"ServerStorage", -- ? Why
-				"ServerScriptService", -- ? Why
-				"SoundService",
 				"StarterGui",
 				"StarterPack",
 				"StarterPlayer",
-				"Teams",
-				"TextChatService",
-				"Workspace",
 			}
 			if OPTIONS.SavePlayers then
 				table.insert(_list_0, "Players")
