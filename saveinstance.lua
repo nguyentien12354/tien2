@@ -918,10 +918,7 @@ local function synsaveinstance(CustomOptions)
 		if mode == "full" then
 			tmp = TempRoot:GetChildren()
 		elseif mode == "optimized" then -- ! Incompatible with .rbxmx (Model file) mode
-			local _list_0 = {
-				"JointsService",
-				"Lighting",
-				"MaterialService",
+			local _list_0 = {	
 				"ReplicatedFirst",
 				"ReplicatedStorage",
 				"StarterGui",
