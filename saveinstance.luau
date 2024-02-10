@@ -530,7 +530,7 @@ local function ArrayToDictionary(Table, HybridMode)
 	return tmp
 end
 local ClassPropertiesBlacklist =
-	{ GuiObject = { "Transparency" }, Instance = { "Parent" }, BasePart = { "BrickColor" }, Instance = { "UnionOperation" }, Instance = { "meshId" }, Instance = {"Attachment"}, Instance = {"ParticleEmitter"}} -- GuiObject.Transparency is almost always 1 meaning everything will be transparent, Instance.Parent is useless in xml (no idea about binary), BasePart.BrickColor hurts other Color3 properties
+	{ GuiObject = { "Transparency" }, Instance = { "Parent" }, BasePart = { "BrickColor" }, Instance = { "Workspace" } } -- GuiObject.Transparency is almost always 1 meaning everything will be transparent, Instance.Parent is useless in xml (no idea about binary), BasePart.BrickColor hurts other Color3 properties
 for Class, Properties in ClassPropertiesBlacklist do
 	ClassPropertiesBlacklist[Class] = ArrayToDictionary(Properties)
 end
@@ -789,7 +789,7 @@ local function synsaveinstance(CustomOptions)
 			Players = {"MyPlayerName"} - - This affects any descendants of instance with "Players" .Class AND "MyPlayerName" .Name ONLY
 		}
 		]]
-		InstancesBlacklist = {},
+		InstancesBlacklist = { "CoreGui", "CorePackages" },
 		--[[ Explanation of structure for InstancesBlacklist
 			{
 			"CoreGui", - This affects any descendants of instance with "Chat" ClassName 
@@ -797,7 +797,7 @@ local function synsaveinstance(CustomOptions)
 		}
 		]]
 		ExtraInstances = {},
-		NilInstances = true,
+		NilInstances = false,
 		ShowStatus = true,
 		FilePath = false, --  does not need to contain a file extension, only the name of the file.
 		Object = false, -- If provided, saves as .rbxmx (Model file) instead; If Object is game, it will be saved as a .RBXL file -- ! MUST BE AN INSTANCE REFERENCE like game.Workspace for example; "optimized" mode is NOT supported with this option
@@ -808,13 +808,13 @@ local function synsaveinstance(CustomOptions)
 		IgnoreNotArchivable = true,
 		IgnorePropertiesOfNotScriptsOnScriptsMode = false, -- Ignores property of every instance that is not a script in "scripts" mode
 		IgnoreSpecialProperties = false, -- true will disable Terrain & some other things
-		-- IsolatePlayerGui = true,
-		IsolateStarterPlayer = true, --If enabled, StarterPlayer will be cleared and the saved starter player will be placed into folders.
-		IsolateLocalPlayer = true, -- Saves Children of LocalPlayer as separate folder and prevents any instance of ClassName Player with .Name identical to LocalPlayer.Name from saving
-		IsolateLocalPlayerCharacter = true, -- Saves Children of LocalPlayer.Character as separate folder and prevents any instance of ClassName Player with .Name identical to LocalPlayer.Name from saving
-		-- MaxThreads = 6
+		-- IsolatePlayerGui = false,
+		IsolateStarterPlayer = false, --If enabled, StarterPlayer will be cleared and the saved starter player will be placed into folders.
+		IsolateLocalPlayer = false, -- Saves Children of LocalPlayer as separate folder and prevents any instance of ClassName Player with .Name identical to LocalPlayer.Name from saving
+		IsolateLocalPlayerCharacter = false, -- Saves Children of LocalPlayer.Character as separate folder and prevents any instance of ClassName Player with .Name identical to LocalPlayer.Name from saving
+		-- MaxThreads = 3
 		RemovePlayerCharacters = true, -- If enabled, player characters will not be saved.
-		SavePlayers = true,
+		SavePlayers = false,
 		SaveCacheInterval = 0x1600, -- The less the more often it saves, but that would mean less performance due to constantly saving
 		ReadMe = true,
 		-- ! Risky
