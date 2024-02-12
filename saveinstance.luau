@@ -1260,7 +1260,7 @@ local function synsaveinstance(CustomOptions)
 			end
 			nilinstances = tmp
 		end
-		local Starter = '<roblox version="2">'
+		local Starter = '<roblox version="5">'
 		if ToSaveInstance then
 			Starter ..= '<Meta name="ExplicitAutoJoints">true</Meta>'
 		end
