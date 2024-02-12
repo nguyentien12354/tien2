@@ -818,7 +818,7 @@ local function synsaveinstance(CustomOptions)
 		SaveCacheInterval = 0x1600, -- The less the more often it saves, but that would mean less performance due to constantly saving
 		ReadMe = true,
 		-- ! Risky
-		AllowResettingProperties = false, -- Enables Resetting of properties for sake of checking their default value (Useful for cases when Instance is NotCreatable like services yet we need to get the default value ) then sets the property back to the original value, which might get detected by some games --! WARNING: Sometimes Properties might not be able to be set to the original value due to circumstances
+		AllowResettingProperties = true, -- Enables Resetting of properties for sake of checking their default value (Useful for cases when Instance is NotCreatable like services yet we need to get the default value ) then sets the property back to the original value, which might get detected by some games --! WARNING: Sometimes Properties might not be able to be set to the original value due to circumstances
 		SharedStringOverwrite = false, -- !  if the process is not finished aka crashed then none of the affected values will be available; SharedStrings can also be used for ValueTypes that aren't `SharedString`, this behavior is not documented anywhere but makes sense (Could create issues though, due to _potential_ ValueType mix-up, only works on certain types which are all base64 encoded so far); Reason: Allows for potential smaller file size (can also be bigger in some cases)
 	}
 
@@ -918,12 +918,23 @@ local function synsaveinstance(CustomOptions)
 		if mode == "full" then
 			tmp = TempRoot:GetChildren()
 		elseif mode == "optimized" then -- ! Incompatible with .rbxmx (Model file) mode
-			local _list_0 = {	
+			local _list_0 = {
+				"Chat",
+				"InsertService",
+				"JointsService",
+				"Lighting",
+				"MaterialService",
 				"ReplicatedFirst",
 				"ReplicatedStorage",
+				"ServerStorage", -- ? Why
+				"ServerScriptService", -- ? Why
+				"SoundService",
 				"StarterGui",
 				"StarterPack",
 				"StarterPlayer",
+				"Teams",
+				"TextChatService",
+				"Workspace",
 			}
 			if OPTIONS.SavePlayers then
 				table.insert(_list_0, "Players")
@@ -1249,7 +1260,7 @@ local function synsaveinstance(CustomOptions)
 			end
 			nilinstances = tmp
 		end
-		local Starter = '<roblox version="4">'
+		local Starter = '<roblox version="2">'
 		if ToSaveInstance then
 			Starter ..= '<Meta name="ExplicitAutoJoints">true</Meta>'
 		end
