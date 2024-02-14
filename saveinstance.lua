@@ -770,7 +770,7 @@ local function synsaveinstance(CustomOptions)
 	local StatusTextClone
 
 	local OPTIONS = {
-		mode = "optimized", -- Change this to invalid mode like "custom" if you only want extrainstances; -- ! "optimized" mode is NOT supported with OPTIONS.Instance option
+		mode = "full", -- Change this to invalid mode like "custom" if you only want extrainstances; -- ! "optimized" mode is NOT supported with OPTIONS.Instance option
 		noscripts = false,
 		scriptcache = true,
 		-- decomptype = "new", -- * Deprecated
@@ -798,7 +798,7 @@ local function synsaveinstance(CustomOptions)
 		NilInstances = false,
 		ShowStatus = true,
 		FilePath = false, --  does not need to contain a file extension, only the name of the file.
-		Object = true, -- If provided, saves as .rbxmx (Model file) instead; If Object is game, it will be saved as a .RBXL file -- ! MUST BE AN INSTANCE REFERENCE like game.Workspace for example; "optimized" mode is NOT supported with this option
+		Object = false, -- If provided, saves as .rbxmx (Model file) instead; If Object is game, it will be saved as a .RBXL file -- ! MUST BE AN INSTANCE REFERENCE like game.Workspace for example; "optimized" mode is NOT supported with this option
 		-- Binary = false, -- true in syn newer versions (false in our case because no binary support yet)
 		-- Decompile = not OPTIONS.noscripts, -- ! This takes priority over OPTIONS.noscripts if set
 		-- DecompileTimeout = OPTIONS.timeout, -- ! This takes priority over OPTIONS.timeout if set
@@ -924,12 +924,15 @@ local function synsaveinstance(CustomOptions)
 				"MaterialService",
 				"ReplicatedFirst",
 				"ReplicatedStorage",
+				"ServerStorage", -- ? Why
+				"ServerScriptService", -- ? Why
 				"SoundService",
 				"StarterGui",
 				"StarterPack",
 				"StarterPlayer",
 				"Teams",
-				"TextChatService",	
+				"TextChatService",
+				"Workspace",
 			}
 			if OPTIONS.SavePlayers then
 				table.insert(_list_0, "Players")
