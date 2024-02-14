@@ -770,7 +770,7 @@ local function synsaveinstance(CustomOptions)
 	local StatusTextClone
 
 	local OPTIONS = {
-		mode = "full", -- Change this to invalid mode like "custom" if you only want extrainstances; -- ! "optimized" mode is NOT supported with OPTIONS.Instance option
+		mode = "optimized", -- Change this to invalid mode like "custom" if you only want extrainstances; -- ! "optimized" mode is NOT supported with OPTIONS.Instance option
 		noscripts = false,
 		scriptcache = true,
 		-- decomptype = "new", -- * Deprecated
@@ -924,15 +924,13 @@ local function synsaveinstance(CustomOptions)
 				"MaterialService",
 				"ReplicatedFirst",
 				"ReplicatedStorage",
-				"ServerStorage", -- ? Why
-				"ServerScriptService", -- ? Why
 				"SoundService",
 				"StarterGui",
 				"StarterPack",
 				"StarterPlayer",
 				"Teams",
 				"TextChatService",
-				"Workspace",
+
 			}
 			if OPTIONS.SavePlayers then
 				table.insert(_list_0, "Players")
